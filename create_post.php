@@ -1,26 +1,20 @@
-<?php include 'includes/dbcon.';?>
-
+<?php include 'include/dbcon.php';?>
+<head>
 	<title>Admin | Maak Post</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 	<!-- admin navbar -->
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include('include/header.php');
+    include('include/menubarleft.php');?>
 
 	<div class="container content">
-		<!-- Left side menu -->
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">
 			<h1 class="page-title">Maak/verwijder een post</h1>
 			<form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_post.php'; ?>" >
-				<!-- validation errors for the form -->
-				<?php include(ROOT_PATH . '/includes/errors.php') ?>
-
-				<!-- if editing post, the id is required to identify that post -->
-				<?php if ($isEditingPost === true): ?>
-					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
-				<?php endif ?>
 
 				<input type="text" name="title" value="<?php echo $title; ?>" placeholder="Titel">
 				<label style="float: left; margin: 5px auto 5px;">Afbeelding</label>
